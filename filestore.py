@@ -21,7 +21,7 @@ passfile.close()
 
 #list of customer balance
 for line in balfile:
-    cusbalfile.txt([:line-1])
+    cusbalfile.txt(line[:-1])
 balfile.close()
 
 
@@ -31,7 +31,7 @@ def cusaccountcheck():
     pin=""
 
     while name not in cusnames and len(name):
-        name=raw_input("Type your name for this new ban account\n")
+        name=input("Type your name for this new ban account\n")
         if name not in cusnames:
             cusnames.append(name)
             filewrite(cusnames)
@@ -40,18 +40,18 @@ def cusaccountcheck():
         ans=raw_input("Are you an existing customer? (y/n)\n")
         if ans.lower()=="y":
             olduscheck()
-        else
+        else:
             cusaccountcheck()
 
     while len(pin)<4:
-        pin=raw_input("Please assign a password to this account, pin should be at least 5 characters\n")
+        pin=input("Please assign a password to this account, pin should be at least 5 characters\n")
         if len(pin)>4:
-            print "your pin has been successfully saved"
-            print "don't disclose your pin to anyone"
+            print ("your pin has been successfully saved")
+            print ("don't disclose your pin to anyone")
             cuspasswords.append(pin)
             cusbalance.append(0)
             balance=100.0
-            cusbalance[cusnames index(name)]=balance
+            cusbalance[cusnames.index(name)]=balance
             filewrite(cuspasswords)
             filewrite(cusbalance)
             break
@@ -72,7 +72,7 @@ def oldcuscheck():
         else:
             print("Sorry %s, Name not in records, Please type in your name corredctly"%names)
             again=raw_inout("Type in your name again? (y/n)")
-            if again.lower()= "y":
+            if again.lower()== "y":
                 olducheck()
             else:
                 print ("Bye, Thanks for using PostBank")

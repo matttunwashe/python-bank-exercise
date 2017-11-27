@@ -3,18 +3,18 @@ import time
 import datetime
 
 def postbank():
-    print ("Welcome to the Bank")
-    prompt = int (raw_input("To open a new bank account, press 1\n" +
-                            "To access your existing account and transaction press 2\n"))
+    print ("Welcome to the Bank\n")
+    prompt = int(input("""To open a new bank account, press 1\n"""+
+                            """To access your existing account and transaction press 2\n"""))
     if prompt == 1:
         cus = BankAccount()
         #creates a new customer profile
-        elif prompt == 2:
+    elif prompt == 2:
             cus = ReturnCustomer()
             #checks for existing customer
-        else:
-            print "Error. Please try again"
-            postbank()
+    else:
+         print ("Error. Please try again")
+         postbank()
 #########################################################
 
 #creating an instance for a new bank account and default bank functions
@@ -63,7 +63,7 @@ exit service, press E\n
             exit()
 
         else:
-            print "No function assigned to this key, try again"
+            print ("No function assigned to this key, try again")
             self.functions()
             
         #checking the account balance
@@ -105,7 +105,7 @@ exit service, press E\n
                 print ("Goodbye {}").format(self.username)
                 exit()
             elif ans!="y" and ans!="n":
-                print "Unknown key pressed, choose either 'Y' or 'N'"
+                print ("Unknown key pressed, choose either 'Y' or 'N'")
                 self.transact_again()
 
         def working(self):
@@ -127,7 +127,7 @@ exit service, press E\n
                     return True
 
                 else:
-                    print"You typed the wrong password"
+                    print ("You typed the wrong password")
                     b-=1
                     print ("%d more attempt(s) remaining" %b)
 
@@ -148,7 +148,8 @@ class ReturnCustomer(BankAccount):
         self.username, self.userpassword, self.balance=filestore.oldcuscheck()
         self.userfunctions()
 
-postbank() # calling the function to run the program
+postbank()
+# calling the function to run the program
 
                         
                 
